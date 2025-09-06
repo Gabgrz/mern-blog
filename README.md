@@ -2,6 +2,9 @@
 
 A modern full-stack blog application built with MongoDB, Express.js, React 18, and Node.js.
 
+> **📅 Last Tested & Verified:** September 2024  
+> This application has been tested and verified to work with the latest compatible versions of all dependencies as of September 2025.
+
 ## Features
 
 - Article listing and individual article pages
