@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import ArticlesList from '../components/ArticlesList';
 import CommentsList from '../components/CommentsList';
 import UpvotesSection from '../components/UpvotesSection';
@@ -6,8 +7,8 @@ import AddCommentForm from '../components/AddCommentForm';
 import NotFoundPage from './NotFoundPage';
 import articleContent from './article-content';
 
-const ArticlePage = ({ match }) => {
-    const name = match.params.name;
+const ArticlePage = () => {
+    const { name } = useParams();
     const article = articleContent.find(article => article.name === name);
 
     const [articleInfo, setArticleInfo] = useState({ upvotes: 0, comments: [] });
