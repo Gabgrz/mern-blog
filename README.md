@@ -73,12 +73,14 @@ For more details, see the [official MongoDB installation guide](https://www.mong
 
 ### Easy Setup
 
-Run the setup script:
+Run the setup script (handles MongoDB installation and startup):
 ```bash
 ./setup.sh
 ```
 
 ### Manual Setup
+
+**⚠️ Important: Follow these steps in order for the application to work correctly.**
 
 1. **Install Dependencies:**
    ```bash
@@ -91,28 +93,80 @@ Run the setup script:
    npm install
    ```
 
-2. **Start the Application:**
-   ```bash
-   # Terminal 1 - Start MongoDB (if not already running)
-   brew services start mongodb-community@8.0
+2. **Start the Application (3 terminals required):**
    
-   # Terminal 2 - Backend
+   **Terminal 1 - Start MongoDB:**
+   ```bash
+   # Check if MongoDB is running
+   brew services list | grep mongodb
+   
+   # If not running, start it
+   brew services start mongodb-community@8.0
+   ```
+   
+   **Terminal 2 - Start Backend:**
+   ```bash
    cd my-blog-backend
    npm run dev
+   # Should show: "Server listening on port 8000"
+   ```
    
-   # Terminal 3 - Frontend
+   **Terminal 3 - Start Frontend:**
+   ```bash
    cd my-blog
    npm start
+   # Should show: "Compiled successfully!" and open browser
    ```
 
 3. **Initialize Sample Data:**
    ```bash
+   # In a new terminal or after backend is running
    curl http://localhost:8000/api/init
+   # Should return: {"message":"Database initialized with sample data"}
    ```
 
-4. **Access the app:**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:8000
+4. **Access the Application:**
+   - **Frontend**: http://localhost:3000 (opens automatically)
+   - **Backend API**: http://localhost:8000
+   - **Network Access**: http://192.168.0.11:3000 (for other devices)
+
+### Troubleshooting
+
+**If frontend won't start:**
+```bash
+cd my-blog
+rm -rf node_modules package-lock.json
+npm install
+npm start
+```
+
+**If backend won't start:**
+- Ensure MongoDB is running: `brew services list | grep mongodb`
+- Check port 8000 is free: `lsof -i :8000`
+
+**If API calls fail:**
+- Verify backend is running on port 8000
+- Check MongoDB is running: `mongosh`
+
+### Quick Verification
+
+Once everything is running, verify the setup:
+
+```bash
+# Check MongoDB
+brew services list | grep mongodb
+
+# Check backend API
+curl http://localhost:8000/api/init
+
+# Check frontend
+curl -I http://localhost:3000
+```
+
+**Expected Results:**
+- MongoDB: `mongodb-community@8.0 started`
+- Backend: `{"message":"Database initialized with sample data"}`
+- Frontend: `HTTP/1.1 200 OK`
 
 ## API Endpoints
 
