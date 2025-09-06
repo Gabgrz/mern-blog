@@ -30,7 +30,46 @@ A modern full-stack blog application built with MongoDB, Express.js, React 18, a
 
 ### Prerequisites
 - Node.js (v14 or higher)
-- MongoDB running on localhost:27017
+- MongoDB Community Edition installed and running on localhost:27017
+
+#### Installing MongoDB on macOS
+
+If you don't have MongoDB installed, follow these steps:
+
+1. **Install MongoDB using Homebrew:**
+   ```bash
+   # Add MongoDB tap
+   brew tap mongodb/brew
+   
+   # Install MongoDB Community Edition
+   brew install mongodb-community@8.0
+   ```
+
+2. **Start MongoDB as a macOS service (recommended):**
+   ```bash
+   brew services start mongodb-community@8.0
+   ```
+
+3. **Verify MongoDB is running:**
+   ```bash
+   # Check service status
+   brew services list | grep mongodb
+   
+   # Or check processes
+   ps aux | grep mongod
+   
+   # Or connect to verify
+   mongosh
+   ```
+
+4. **Stop MongoDB when needed:**
+   ```bash
+   brew services stop mongodb-community@8.0
+   ```
+
+> **Note:** If you encounter security errors on macOS, go to System Preferences > Security & Privacy > General and click "Allow Anyway" for mongod.
+
+For more details, see the [official MongoDB installation guide](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/).
 
 ### Easy Setup
 
@@ -54,11 +93,14 @@ Run the setup script:
 
 2. **Start the Application:**
    ```bash
-   # Terminal 1 - Backend
+   # Terminal 1 - Start MongoDB (if not already running)
+   brew services start mongodb-community@8.0
+   
+   # Terminal 2 - Backend
    cd my-blog-backend
    npm run dev
    
-   # Terminal 2 - Frontend
+   # Terminal 3 - Frontend
    cd my-blog
    npm start
    ```
