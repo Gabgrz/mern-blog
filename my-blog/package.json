@@ -23,11 +23,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "react-scripts": "^5.0.1"
+    "react-scripts": "5.0.1"
   },
   "overrides": {
     "nth-check": ">=2.0.1",
-    "postcss": ">=8.4.31",
-    "webpack-dev-server": ">=4.15.1"
+    "postcss": ">=8.4.31"
   }
 }
