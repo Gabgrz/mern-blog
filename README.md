@@ -32,8 +32,9 @@ A modern full-stack blog application built with MongoDB, Express.js, React 18, a
 ## Quick Start
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB Community Edition installed and running on localhost:27017
+- **Node.js** (v14 or higher) - [Download here](https://nodejs.org/)
+- **MongoDB Community Edition** installed and running on localhost:27017
+- **Homebrew** (for macOS) - [Install here](https://brew.sh/)
 
 #### Installing MongoDB on macOS
 
@@ -133,6 +134,20 @@ Run the setup script (handles MongoDB installation and startup):
    - **Backend API**: http://localhost:8000
    - **Network Access**: http://192.168.0.11:3000 (for other devices)
 
+### Development Commands
+
+```bash
+# Backend development
+cd my-blog-backend
+npm run dev          # Start with nodemon (auto-restart)
+
+# Frontend development  
+cd my-blog
+npm start            # Start development server
+npm run build        # Create production build
+npm test             # Run tests
+```
+
 ### Troubleshooting
 
 **If frontend won't start:**
@@ -195,12 +210,26 @@ mern-my-blog/
 
 ## What's New
 
-- ✅ Updated to React 18 with modern hooks
-- ✅ React Router v6 with new routing syntax
-- ✅ Latest Express.js and MongoDB driver
-- ✅ ES6+ modules (no Babel needed)
-- ✅ CORS support for better development
-- ✅ Error handling and validation
-- ✅ Easy setup script
+- ✅ **React 18** with modern hooks and concurrent features
+- ✅ **React Router v6** with new routing syntax
+- ✅ **Latest Express.js 4.18.2** and MongoDB 6.3.0 driver
+- ✅ **ES6+ modules** (no Babel needed)
+- ✅ **CORS support** for better development
+- ✅ **Error handling and validation** with proper HTTP status codes
+- ✅ **Easy setup script** with automatic MongoDB installation
 - ✅ **Security vulnerabilities fixed** - All npm vulnerabilities resolved
 - ✅ **Production ready** - Optimized build with no security issues
+- ✅ **Comprehensive documentation** with troubleshooting guide
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Make your changes and test thoroughly
+4. Commit your changes: `git commit -m 'Add feature'`
+5. Push to the branch: `git push origin feature-name`
+6. Submit a pull request
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
